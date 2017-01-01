@@ -409,6 +409,20 @@ module.exports = function(yargs, argv, convertOptions) {
 		processResolveAlias("resolve-alias", "resolve");
 		processResolveAlias("resolve-loader-alias", "resolveLoader");
 
+		ifArg("resolve-modules-directories", function(value) {
+			ensureObject(options, "resolve");
+			var directories;
+			if(Array.isArray(value)) {
+				directories = value;
+			} else {
+				directories = value.split(/,\s*/);
+			}
+
+			options.resolve.modulesDirectories = directories.map(function(directory) {
+				return path.resolve(directory);
+			});
+		});
+
 		ifArg("resolve-extensions", function(value) {
 			ensureObject(options, "resolve");
 			if(Array.isArray(value)) {

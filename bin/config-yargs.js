@@ -186,6 +186,12 @@ module.exports = function(yargs) {
 				group: BASIC_GROUP,
 				requiresArg: true
 			},
+			"resolve-modules-directories": {
+				"type": "array",
+				describe: "Directories where modules should be resolved modules (Example: --resolve-modules-directories /User/modules)",
+				group: RESOLVE_GROUP,
+				requiresArg: true
+			},
 			"resolve-alias": {
 				type: "string",
 				describe: "Setup a module alias for resolving (Example: jquery-plugin=jquery.plugin)",
